@@ -1,9 +1,6 @@
 package web.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -15,18 +12,12 @@ public class User {
     private int id;
 
     @Column(name = "name")
-    @NotEmpty(message = "not empty")
-    @Size(min = 2, max = 10, message = "min - 2 and max - 10")
     private String name;
 
     @Column(name = "lastname")
-    @NotEmpty(message = "not empty")
-    @Size(min = 2, max = 10, message = "min - 2 and max - 10")
     private String lastName;
 
     @Column(name = "age")
-    @NotEmpty(message = "not empty")
-    @Min(value = 0, message = "not 0")
     private byte age;
 
     public User() {
