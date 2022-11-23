@@ -24,24 +24,24 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String addNewUser(@ModelAttribute("user") User user) {
+    public String getUserFormForCreate(@ModelAttribute("user") User user) {
         return "new";
     }
 
     @PostMapping()
-    public String saveNewUser(@ModelAttribute("user") User user) {
+    public String saveCreatedUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/users";
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
         return "redirect:/users";
     }
 
     @GetMapping("/edit/{id}")
-    public String getUserForUpdate(Model model, @PathVariable int id) {
+    public String getUserFormForUpdate(Model model, @PathVariable int id) {
         model.addAttribute("user", userService.getUser(id));
         return "edit";
     }

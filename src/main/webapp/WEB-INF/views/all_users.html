@@ -49,10 +49,16 @@
             <td th:text = "${user.lastName}"></td>
             <td th:text = "${user.age}"></td>
             <td>
-                <a th:href = "@{/users/edit/{id}(id=${user.id})}"
-                   class = "btn btn-primary">Update</a>
-                <a th:href = "@{/users/{id}(id=${user.id})}"
-                   class = "btn btn-danger">Delete</a>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <form th:method="GET" th:action="@{/users/edit/{id}(id=${user.id})}">
+                        <input type="submit" value="Update"/></form>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <form th:method="DELETE" th:action="@{/users/{id}(id=${user.id})}">
+                        <input type="submit" value="Delete"/></form>
+                    </div>
+                </div>
             </td>
         </tr>
         </tbody>
